@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GameZone | Play. Compete. Win.</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <header class="navbar">
+        <a href="#" class="logo">
+            <span class="logo-icon">G</span>
+            GameZone
+        </a>
+
+        <nav>
+            <a href="#games">Games</a>
+            <a href="#leaderboard">Leaderboard</a>
+        </nav>
+
+        <button id="themeButton" class="theme-button"
+                aria-label="Toggle dark mode">🌙</button>
+
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <span class="badge">🎮 YOUR NEXT GAMING DESTINATION</span>
+
+                <h1>Ready, Set,<br><span>Play!</span></h1>
+
+                <p>
+                    Take a break, challenge yourself and discover
+                    your next favourite mini game.
+                </p>
+
+                <a href="#games" class="hero-button">Explore Games ↗️</a>
+
+                <div class="hero-stats">
+                    <div>
+                        <strong>03</strong>
+                        <span>Mini Games</span>
+                    </div>
+
+                    <div>
+                        <strong>♾️</strong>
+                        <span>Fun Moments</span>
+                    </div>
+
+                    <div>
+                        <strong>100%</strong>
+                        <span>Free to Play</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-art" aria-label="Gaming controller illustration">
+                <div class="art-circle circle-one"></div>
+                <div class="art-circle circle-two"></div>
+
+                <div class="controller">
+                    <span class="dpad">➕</span>
+                    <span class="controller-center">GZ</span>
+                    <span class="button-a">A</span>
+                    <span class="button-b">B</span>
+                </div>
+
+                <span class="floating-star star-one">⭐</span>
+                <span class="floating-star stat-two">✨</span>
+                <span class="floating-star star-three">🌟</span>
+
+
+                <div class="floating-label">LET'S PLAY!</div>
+            </div>
+        </section>
+
+        <section class="games-section" id="games">
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">PICK YOUR CHALLENGE</span>
+                    <h2>Explore the Arcade</h2>
+                    <p>Choose a game and start palying instantly.</p>
+                </div>
+
+                <span class="game-count">03 GAMES</span>
+            </div>
+
+            <div class="game-grid">
+
+                <article class="game-card">
+                    <div class="game-art art-purple">
+                        <span class="game-emoji">⭕</span>
+                        <span class="art-label">STRATEGY</span>
+                    </div>
+
+                    <div class="game-info">
+                        <span class="category">TWO PLAYER</span>
+                        <h3>Tic-Tac-Toe</h3>
+                        <p>Think ahead and get three marks in a row.</p>
+
+                        <button class="play-button" data-game="tic">
+                            Play Game <span>↗️</span>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="game-card">
+                    <div class="game-art art-green">
+                        <span class="game-emoji">🐍</span>
+                        <span class="art-label">ARCADE</span>
+                    </div>
+
+                    <div class="game-info">
+                        <span class="category">SINGLE PLAYER</span>
+                        <h3>Snake Rush</h3>
+                        <p>Collect food, grow longer and best your score.</p>
+
+                        <button class="play-button"
+                                data-game="snake">
+                            Play Game <span>↗️</span>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="game-card">
+                    <div class="game-art art-orange">
+                        <span class="game-emoji">✊</span>
+                        <span class="art-label">QUICK MATCH</span>
+                    </div>
+
+                    <div class="game-info">
+                        <span class="category">VS COMPUTER</span>
+                        <h3>Rock Paper Scissors</h3>
+                        <p>Make your move and challenge the computer.</p>
+
+                        <button class="play-button" 
+                                data-game="rps">
+                            Play Game <span>↗️</span>
+                        </button>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+
+        <section class="arcade-section" id="arcade">
+            <div class="arcade-header">
+                <div>
+                    <span class="eyebrow">NOW PLAYING</span>
+                    <h2 id="gameTitle">Tic-Tac-Toe</h2>
+                </div>
+
+                <button id="closeGame" class="close-button">
+                    Reset/Close
+                </button>
+            </div>
+
+            <div class="game-panel">
+
+                <!-- Tic-Tac-Toe -->
+                <div id="ticGame" class="game-screen">
+                    <p id="ticStatus" class="game-status">
+                        Player X's turn
+                    </p>
+     
+                    <div id="ticBoard" class="tic-board">
+                        <button class="tic-cell" data-cell="0"></button>
+                        <button class="tic-cell" data-cell="1"></button>
+                        <button class="tic-cell" data-cell="2"></button>
+                        <button class="tic-cell" data-cell="3"></button>
+                        <button class="tic-cell" data-cell="4"></button>
+                        <button class="tic-cell" data-cell="5"></button>
+                        <button class="tic-cell" data-cell="6"></button>
+                        <button class="tic-cell" data-cell="7"></button>
+                        <button class="tic-cell" data-cell="8"></button>
+                    </div>
+
+                    <button id="ticReset" class="action-button">
+                        New Round
+                    </button>
+                </div>
+
+                <!-- Snake -->
+                <div id="snakeGame" class="game-screen hidden">
+                    <p class="game-status">
+                        Use arrow keys or WASD to move.
+                    </p>
+
+                    <div class="snake-score">
+                        Score: <strong id="snakeScore">0</strong>
+                    </div>
+
+                    <canvas id="snakeCanvas" 
+                            width="400" height="400">
+                        Your browser does not support canvas.
+                    </canvas>
+
+                    <div class="snake-control">
+                        <button data-direction="up">⬆️</button>
+                        <div>
+                            <button data-direction="left">⬅️</button>
+                            <button data-direction="down">⬇️</button>
+                            <button data-direction="right">➡️</button>
+                        </div>
+                    </div>
+
+                    <button id="snakeStart" class="action-button">
+                        Start Snake
+                    </button>
+                </div>
+
+                <!-- Rock Paper Scissors -->
+                <div id="rpsGame" class="game-screen hidden">
+                    <p class="game-status">
+                        Choose your move!
+                    </p>
+
+                    <div class="rps-score">
+                        <div>
+                            <span>YOU</span>
+                            <strong id="playerScore">0</strong>
+                        </div>
+
+                        <div class="vs">VS</div>
+
+                        <div>
+                            <span>COMPUTER</span>
+                            <strong id="computerScore">0</strong>
+                        </div>
+                    </div>
+
+                    <div class="rps-choices">
+                        <button class="rps-choice" data-choice="rock">
+                            ✊
+                            <span>Rock</span>
+                        </button>
+
+                        <button class="rps-choice" data-choice="paper">
+                            ✋
+                            <span>Paper</span>
+                        </button>
+
+                        <button class="rps-choice" data-choice="scissors">
+                            ✌️
+                            <span>Scissors</span>
+                        </button>
+                    </div>
+
+                    <p id="rpsResult" class="rps-result">
+                        Your move is waiting...
+                    </p>
+
+                    <button id="rpsReset" class="action-button">
+                        Reset Score
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="leaderboard-section" id="leaderboard">
+            <div>
+                <span class="eyebrow">YOUR PROGRESS</span>
+                <h2>Arcade Scoreboard</h2>
+                <p>Your result are saved in this browser.</p>
+            </div>
+
+            <div class="leaderboard-card">
+                <div class="leader-row">
+                    <span class="rank">01</span>
+                    <span class="leader-icon">⭕</span>
+                    <div class="leader-name">
+                        <strong>Tic-Tac-Toe</strong>
+                        <span>Round won as Player X</span>
+                    </div>
+                    <strong id="ticWins">0</strong>
+                </div>
+
+                <div class="leader-row">
+                    <span class="rank">02</span>
+                    <span class="leader-icon">🐍</span>
+                    <div class="leader-name">
+                        <strong>Snake Rush</strong>
+                        <span>Best score</span>
+                    </div>
+                    <strong id="snakeBest">0</strong>
+                </div>
+
+                <div class="leader-row">
+                    <span class="rank">03</span>
+                    <span class="leader-icon">✊</span>
+                    <div class="leader-name">
+                        <strong>Rock Paper Scissors</strong>
+                        <span>Round won</span>
+                    </div>
+                    <strong id="rpsWins">0</strong>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <a href="#" class="logo footer-logo">Game Zone</a>
+        <p>Play fair. Have fun. Come back for another round.</p>
+        <span>© 2026 GameZone</span>
+    </footer>
+
+</body>
+</html>                      
